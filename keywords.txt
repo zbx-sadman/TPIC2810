@@ -1,0 +1,26 @@
+#######################################
+# Syntax Coloring Map For TPIC2810 Lib
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+TPIC2810 KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin			KEYWORD2
+read			KEYWORD2
+write			KEYWORD2
+writeAndTransfer	KEYWORD2
+transfer		KEYWORD2
+outputEnable		KEYWORD2
+outputDisable		KEYWORD2
+outputPwm		KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################

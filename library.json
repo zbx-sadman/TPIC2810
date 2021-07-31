@@ -1,0 +1,27 @@
+{
+    "name": "TPIC2810",
+    "description": "Texas Instrument TPIC2810 8-bit LED driver with I2C interface",
+    "keywords": "TPIC2810, I2C, LED driver",
+    "authors": [
+        {
+            "name": "Grigory Prigodin",
+            "url": "https://github.com/zbx-sadman",
+            "maintainer": true
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zbx-sadman/TPIC2810.git"
+    },
+    "version": "0.9.0",
+    "export": {
+        "exclude": [
+            "tests"
+        ]
+    },
+    "frameworks": "arduino",
+    "platforms": "*",
+    "examples": [
+        "examples/*/*.ino"
+    ]
+}
