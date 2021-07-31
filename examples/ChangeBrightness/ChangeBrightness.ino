@@ -2,7 +2,10 @@
 
 // Create instance
 // LED driver #1 used Wire library object, have address 0x66, and output enable pin attached to Arduino pin 4
-TPIC2810 ledDriver01(Wire, 0x66, BUILTIN_LED, 2);
+TPIC2810 ledDriver01(Wire, 0x66, 4);
+
+// ESP32 can be inited as follows
+//TPIC2810 ledDriver01(Wire, 0x66, BUILTIN_LED, 2);
 
 // Segments configuration is EDCBAFG
 const uint8_t symbol[] = {
