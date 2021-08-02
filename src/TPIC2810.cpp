@@ -2,7 +2,7 @@
 //
 //    FILE: TPIC2810.cpp
 //  AUTHOR: Grigory Prigodin (https://github.com/zbx-sadman)
-// VERSION: 1.0.0
+// VERSION: 1.0.1
 // PURPOSE: Texas Instrument TPIC2810 8-bit LED driver with I2C interface
 //
 // HISTORY:
@@ -63,8 +63,6 @@ uint8_t TPIC2810::dataExchange(command_t _command, uint8_t& _variable, uint8_t _
 //           * false on any I2C error rised.
 //
 uint8_t TPIC2810::begin() {
-  ptrTwoWire->begin();
-  ptrTwoWire->beginTransmission(i2cAddress);
 
   if (TPIC2810_OE_PIN_NOT_DEFINED != oePin) {
 #if (defined(ARDUINO_ARCH_AVR) || defined(ARDUINO_ARCH_ESP8266))
@@ -76,6 +74,9 @@ uint8_t TPIC2810::begin() {
      ledcWrite(pwmChannel, TPIC2810_ESP32_PWM_MIN);
 #endif
   }
+
+  ptrTwoWire->begin();
+  ptrTwoWire->beginTransmission(i2cAddress);
   return (TWI_NO_ERROR == ptrTwoWire->endTransmission(true));
 }
 

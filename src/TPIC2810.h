@@ -2,7 +2,7 @@
 //
 //    FILE: TPIC2810.h
 //  AUTHOR: Grigory Prigodin (https://github.com/zbx-sadman)
-// VERSION: 1.0.0
+// VERSION: 1.0.1
 // PURPOSE: Texas Instrument TPIC2810 8-bit LED driver with I2C interface
 // HISTORY: See TPIC2810.cpp
 //     URL: https://github.com/zbx-sadman/TPIC2810
@@ -36,11 +36,11 @@ class TPIC2810  {
     //
     // Create instance with default I2C address, and detached output enable pin
     //
-    TPIC2810(TwoWire& _twoWire)                                      : ptrTwoWire(&_twoWire), i2cAddress(TPIC2810_I2C_ADDRESS_DEFAULT), oePin(TPIC2810_OE_PIN_NOT_DEFINED) { ; }
+    TPIC2810(TwoWire& _twoWire)                                      : ptrTwoWire(&_twoWire) { ; }
     //
     // Create instance with specified I2C address, and detached output enable pin
     //
-    TPIC2810(TwoWire& _twoWire, uint8_t _i2cAddress)                 : ptrTwoWire(&_twoWire), i2cAddress(_i2cAddress), oePin(TPIC2810_OE_PIN_NOT_DEFINED) { ; }
+    TPIC2810(TwoWire& _twoWire, uint8_t _i2cAddress)                 : ptrTwoWire(&_twoWire), i2cAddress(_i2cAddress) { ; }
     //
     // Create instance with specified I2C address, and attached output enable pin
     //
@@ -131,8 +131,8 @@ class TPIC2810  {
     uint8_t  dataExchange(command_t, uint8_t&, uint8_t);
 
     TwoWire* ptrTwoWire;
-    uint8_t  i2cAddress;
-    int8_t   oePin;
+    uint8_t  i2cAddress = TPIC2810_I2C_ADDRESS_DEFAULT;
+    int8_t   oePin      = TPIC2810_OE_PIN_NOT_DEFINED;
     uint8_t  pwmChannel = TPIC2810_ESP32_PWM_CHANNEL_DEFAULT;
 };
 
